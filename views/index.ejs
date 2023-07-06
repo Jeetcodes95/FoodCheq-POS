@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foodcheq</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="bg-img"></div>
+        <div class="text">
+            <h1>Welcome to <span>foodCheq</span></h1>
+            <h4>The best solution for your business to grow & make all your process smooth.</h4>
+        </div>
+      <div class="container">
+        <div class="drop">
+          <div class="content">
+            <h2>Sign in here!</h2>
+            <% if(message.length > 0) { %>
+              <h5 style="color: rgb(53, 189, 114); font-size: 14px; width: 80%;"><%= message %></h5>
+            <% } %>
+            <form action="/login" method="post">
+              <div class="inputbox">
+              <input type="text" required minlength="0" aria-required="false" aria-invalid="true" name="username" placeholder="Username">
+              </div>
+              <div class="inputbox">
+                <input type="password" required minlength="0" aria-required="false" aria-invalid="true" name="password" placeholder="Password">
+                </div>
+                <div class="inputbox">
+                  <input style="color: #fff; cursor: pointer; font-size: 14px;" type="submit" value="Sign In">
+                </div>
+            </form>
+            <% if(messages.error) { %>
+              <h5 style="color: rgb(247, 4, 4); font-size: 14px; width: 80%; text-align: center;"><%= messages.error %></h5>
+            <% } %>
+          </div>
+        </div>
+        <a href="/forgetPg" ><h3 class="btns">Forgot Password</h3></a>
+        <a href="/signup" ><h2 class="btns signup">Sign Up</h2></a>
+      </div>
+</div>
+<!-- <div class="sizeMsg">
+  <h1>Sorry! can't load this page.</h1>
+  <h4>Please use any <b>Laptop</b> Or <b>Desktop</b> to view page content. <br><br> [ Minimum Screen Size <b>1025px</b> ]</h4>
+</div> -->
+<script src="script.js"></script>
+</body>
+</html>

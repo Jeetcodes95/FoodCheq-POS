@@ -1,0 +1,72 @@
+<%- include partials/header.ejs %>
+
+<div class="mobile-cart">
+    <div class="title-top df-ac-jsb">
+        <h2 class="order">Order <span>Menu</span></h2>
+        <!-- <i class="far fa-edit"></i> -->
+    </div>
+    <div class='Header'>
+        <h3 class='Heading'>Items: <span><%= user.cart.items.length %></span></h3>
+        <!-- <h5 class='Action'>Remove all</h5> -->
+        <form action="/removeAllCart" method="POST">
+            <input type="hidden" name="prodId" value="">
+            <button style="font-weight: 600; outline: none; border: none; background: transparent;" type="submit" class="Action"><u>Remove All</u></button>
+        </form>
+    </div>
+
+    <div class="order-list df-ac-jsb">                
+        <div class='Cart-Container'>
+            <% for(let i = 0; i < user.cart.items.length; i++){
+                let eachItem = user.cart.items[i];  
+            %>
+        <div class='Cart-Items df-ac-jsb'>
+            <div class="c-left df-ac">
+                <div class='image-box'>
+                    <img src="<%= eachItem.productId.photo %>" alt="">
+                </div>
+                <div class='about df-ac'>
+                    <h1 class='title'><%= eachItem.productId.name %> <br><div class="subtitle">₹ <%= eachItem.productId.price %></div> </h1>
+                </div>
+            </div>
+            <div class="c-right df-ac">
+                <div class='counter df-ac'>
+                    <div class='btn plus'>+</div>
+                    <!-- <input type="text" class="count" placeholder="<%= eachItem.qty %>"> -->
+                    <h5 class="count"><%= eachItem.qty %></h5>
+                   <div class='btn minus'>-</div>
+                </div>
+                <div class='prices df-ac-jsb'>
+                    <div class='amount'><%= eachItem.productId.price * eachItem.qty %></div>
+                    <form action="/deleteInCart" method="POST">
+                        <input type="hidden" name="prodId" value="<%= eachItem.productId._id %>">
+                        <button style="outline: none; border: none; background: transparent;" type="submit" class='remove'><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <%}%>
+    </div>
+    <br>
+</div>
+<hr>
+    <div class='checkout'>
+        <div class='total'>
+            <div>
+                <div class='Subtotal'>Sub-Total</div>
+                <div class='Subtotal text-lite'>Tax 5%</div>
+                <!-- <div class='Subtotal text-lite'>Parcel Charge</div> -->
+            </div>
+
+            <div class="t-amt">
+                <div class='total-amount'>₹ <%= parseFloat(user.cart.totalPrice).toFixed(2) %></div>
+                <div class='total-amount text-lite'>₹ <%= parseFloat(user.cart.totalPrice * .05).toFixed(2) %></div>
+                <!-- <div class='total-amount text-lite'>₹ 10</div> -->
+            </div>
+        </div>
+    </div>
+    <a href="/checkout"><h3 class="charge gen-bill">CHECKOUT <span class="chk m-s">₹<%= parseFloat(user.cart.totalPrice + (user.cart.totalPrice * .05)).toFixed(0) %></span></h3></a>
+    <!-- <a href="/mobileCart"><h3 class="MobileViewCharge charge"><span class="chk m-s">Checkout: ₹<%= parseFloat(user.cart.totalPrice + (user.cart.totalPrice * .05)).toFixed(0) %></span></h3></a> -->
+
+    <!-- <a href="/checkout"><h3 class="charge"><span class="chk">Checkout : ₹ <%= parseFloat(user.cart.totalPrice + (user.cart.totalPrice * .05)).toFixed(0) %></span></h3></a> -->
+</div>
+<%- include partials/mobileNav.ejs %>

@@ -1,0 +1,198 @@
+<%- include partials/header.ejs %>
+
+<body id="page-top">
+    <div id="wrapper">
+       <%- include partials/newside.ejs %>
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Settings</h3>
+                    <div class="row mb-3">
+                        <div class="col-lg-4">
+                            <div class="card mb-3">
+                                <div class="card-body text-center shadow">
+                                    <img class="rounded-circle mb-3 mt-4 pfile" style="object-fit: cover;"
+                                        src="<%= user.logo %>"
+                                        width="160" height="160">
+                                        <form class="profileImgform" action="/uploadLogo" method="post" enctype="multipart/form-data">
+                                            <input id="file" type="file" name="image">
+                                        </form>
+                <i class="far fa-edit edit"></i>
+
+                                    <div class="mb-3"><button class="btn-primary btn-sm upload-btn" type="button">Upload
+                                            Logo</button></div>
+                                            
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row mb-3 d-none">
+                                <div class="col">
+                                    <div class="card text-white bg-primary shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body">
+                                            <div class="row mb-2">
+                                                <div class="col">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow mb-3">
+                                        <div class="card-header df-ac-jsb py-3">
+                                            <p class="text-primary m-0 font-weight-bold">Restaurent Details.</p>
+                                            <i style="color: royalblue; cursor: pointer; font-size: 16px; opacity: 1;" class="far fa-edit profileEdit"></i>
+                                        </div>
+                                        <div style="display: none;" class="card-body profileCard ">
+                                            <form style="display: none;" class="profileForm" action="/change" method="post">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group"><label
+                                                                for="shopname"><strong>Restaurent Name</strong></label><input
+                                                                class="form-control" required type="text" placeholder="<%= user.shopname %>"
+                                                                name="shopname"></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><label for="mobile"><strong>Contact Number</strong></label><input class="form-control"
+                                                                type="text" required placeholder="<%= user.mobile %>"
+                                                                name="mobile" title="Error Message" pattern="[1-9]{1}[0-9]{9}"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group"><label
+                                                                for="city"><strong>City</strong></label><input
+                                                                class="form-control" type="text" required placeholder="<%= user.city %>"
+                                                                name="city"></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><label for="country"><strong>Country</strong></label><input class="form-control"
+                                                                type="text" required placeholder="<%= user.country %>"
+                                                                name="country" title="Error Message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group"><label
+                                                            for="address"><strong>Address</strong></label><input
+                                                            class="form-control" type="text" required placeholder="<%= user.address %>"
+                                                            name="address"></div>
+                                                    </div>
+                                            </div>
+
+                                                <div class="form-group"><button class="btn-primary btn-sm"
+                                                        type="submit">Save Changes</button></div>
+                                            </form>
+                                        </div>
+                                    </div>                                    
+                                    <div class="flex-column profileData">
+                                        <div class="profile-details d-flex">
+                                            <div class="left-cat">
+                                                <h6>Restaurent Name</h6>   
+                                                <h6>Contact Number</h6>   
+                                                <h6>City</h6>   
+                                                <h6>Country</h6>   
+                                                <h6>Address</h6>   
+                                            </div>
+                                            <div class="right-cat">
+                                                <h6><%= user.shopname %></h6>   
+                                                <h6><%= user.mobile %></h6>   
+                                                <h6><%= user.city %></h6>   
+                                                <h6><%= user.country %></h6>   
+                                                <h6><%= user.address %></h6>   
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card shadow">
+                <div class="card-header py-6">
+                    <p class="text-primary m-0 font-weight-bold">Orders</p>
+                </div>
+                
+                
+                <div class="card-body prod-scroll">
+                    <!-- <div class="row">
+                        <div class="col-md-6 text-nowrap">
+                            <div id="dataTable_length" class="dataTables_length" aria-controls="dataTable"><label>Show&nbsp;<select class="form-control form-control-sm custom-select custom-select-sm"><option value="10" selected="">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select>&nbsp;</label></div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-right dataTables_filter" id="dataTable_filter"><label><input type="search" class="form-control form-control-sm" aria-controls="dataTable" placeholder="Search"></label></div>
+                        </div>
+                    </div> -->
+                    
+                    <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
+                        <table class="table dataTable my-0" id="dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Payment Mode</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                 <tr id="productDisplay">
+                                    <td>#000001</td>
+                                    <td>10/07/2023</td>
+                                    <td>₹2000</td>
+                                     <td>Cash</td>  
+                                    <td><a href="/deleteOrder"><button class="btn-danger btn-sm" type="button">delete</button></a>                          
+                                    </td>
+                                </tr>
+                                </tr>
+                                
+                            </tbody>
+                            
+                            <tfoot>
+                                <tr></tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 align-self-center">
+                            <!-- <p id="dataTable_info" class="dataTables_info" role="status" aria-live="polite">Showing 1 to 10 of 27</p> -->
+                        </div>
+                        <!-- <div class="col-md-6">
+                            <nav class="d-lg-flex justify-content-lg-end dataTables_paginate paging_simple_numbers">
+                                <ul class="pagination">
+                                    <li class="page-item disabled"><a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
+                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                </ul>
+                            </nav>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+    <%- include partials/mobileNav.ejs %>
+
+            <!-- <div class="sizeMsg">
+                <h1>Sorry! can't load this page.</h1>
+                <h4>Please use any <b>Laptop</b> Or <b>Desktop</b> to view page content. <br><br> [ Minimum Screen Size <b>1025px</b> ]</h4>
+              </div> -->
+       <%- include partials/footer.ejs %>

@@ -1,0 +1,93 @@
+<%- include partials/header.ejs %>
+
+<body id="page-top">
+    <div id="wrapper">
+       <%- include partials/newside.ejs %>
+
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content">
+                
+                <div class="container-fluid">
+                    <h3 class="text-dark mb-4">Create Product</h3>
+                    <div class="row mb-3">
+                        <div class="col-lg-8">
+                            <div class="row mb-3 d-none">
+                                <div class="col">
+                                    <div class="card text-white bg-success shadow">
+                                        <div class="card-body"> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card shadow mb-3">
+                                        <div class="card-header py-3">
+                                            <p class="text-primary m-0 font-weight-bold">Create Product</p>
+                                        </div>
+                                        <div class="card-body">
+                                            <form action="/create" method="post" enctype="multipart/form-data">
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group"><label
+                                                                for="username"><strong>Product Name</strong></label><input
+                                                                class="form-control" style="text-transform: capitalize;" type="text" required
+                                                                name="name"></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><label for="mobile"><strong>Category</strong></label>
+                                                           
+                                                            <div class="form-control sbx" id="yoe_fld">
+                                                                <span class="cus_selt" id="sel_txt">Select</span>
+                                                               <select id="sel_val" class="styled" name="category">
+                                                                   <option disabled hidden>Sele</option>
+                                                                   <option value="Burger">Burger</option>
+                                                                   <option value="Pizza">Pizza</option>
+                                                                   <option value="Chinese">Chinese</option>
+                                                                   <option value="Momos">Momos</option>
+                                                                   <option value="Meal">Meal</option>
+                                                                   <option value="Coffee">Coffee</option>
+                                                                   <option value="Mocktail">Mocktail</option>
+                                                                   <option value="Shake">Shake</option>
+                                                                 </select>
+                    
+                                                              </div>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group"><label
+                                                                for="username"><strong>Price</strong></label><input
+                                                                class="form-control" type="text" required placeholder="₹"
+                                                                name="price"></div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><label for="image"><strong>Upload Image</strong></label>  
+                                                            <input id="photo-upload" type="file" name="image">
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <button class="btn-primary btn-sm"
+                                                        type="submit">Create</button></div>
+                                            </form>
+                                            <% if(message.length > 0) { %>
+                                                <h5 style="color: rgb(53, 189, 114); font-size: 14px;"><%= message %></h5>
+                                              <% } %>
+                                        </div>
+                                    </div>          
+                                    <!-- <a href="/products"><button class="btn-success btn-sm" type="button">View Products</button></a>                           -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    <%- include partials/mobileNav.ejs %>
+
+            <!-- <div class="sizeMsg">
+                <h1>Sorry! can't load this page.</h1>
+                <h4>Please use any <b>Laptop</b> Or <b>Desktop</b> to view page content. <br><br> [ Minimum Screen Size <b>1025px</b> ]</h4>
+              </div> -->
+       <%- include partials/footer.ejs %>

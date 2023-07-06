@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foodCheq</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="bg-img"></div>
+          <div class="text">
+            <h1><span>Forgot Password.</span></h1>
+        </div>
+  
+      <div class="container">
+        <div class="drop">
+          <div class="content">
+            <h3>Forgot your password?</h3>
+            <h4 style="text-align: center; opacity: .7;">We get it stuff happens. Just enter your email address below and we'll send you a link to reset your password!</h4>
+            <form action="/forgot" method="post">
+                <div class="inputbox">
+                    <input type="email"  required minlength="0" aria-required="false" aria-invalid="true" name="email" placeholder="E-mail">
+                    </div>
+                <div class="inputbox" style="margin-left: 30%;">
+                  <input style=" color: #fff; font-size: 14px;" type="submit" value="Send link">
+                </div>
+            </form>
+            <% if(message.length > 0) { %>
+            <h5 style="color: rgb(245, 73, 73); width: 80%;"><%= message %></h5 style="color: red;">
+
+            <% } %>
+          </div>
+        </div>
+        <a href="/"><h2 class="btns signup">Sign In</h2></a>
+      </div>
+</div>
+<div class="sizeMsg">
+  <h1>Sorry! can't load this page.</h1>
+  <h4>Please use any <b>Laptop</b> Or <b>Desktop</b> to view page content. <br><br> [ Minimum Screen Size <b>1025px</b> ]</h4>
+</div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<div class="mobileNav">
+    <ul class="page-redirect">
+        <li class="nav-link"><a href="/cart">
+                <i class="fas fa-store"></i></a></li>
+        <li class="nav-link"><a href="/dashboard">
+                <i class="fas fa-tachometer-alt"></i></a></li>
+        <li class="nav-link"><a href="/menu">
+                <i class="fa fa-plus-circle"></i></a></li>
+        <li class="nav-link"><a href="/products">
+                <i class="fas fa-table"></i></a></li>
+        <li class="nav-link"><a class="nav active" href="/profile">
+                <i class="far fa-sun"></i></a></li>
+       
+    </ul>
+    <a href="/mobileCart"><h3 class="MobileViewCharge charge"><span class="chk m-s">₹<%= parseFloat(user.cart.totalPrice + (user.cart.totalPrice * .05)).toFixed(0) %></span></h3></a>
+
+</div>

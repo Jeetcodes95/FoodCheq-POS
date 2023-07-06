@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>foodCheq</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body>
+    <div id="main">
+        <div class="bg-img"></div>
+          <div class="text">
+            <h1><span>Reset Password.</span></h1>
+        </div>
+  
+      <div class="container">
+        <div class="drop">
+          <div class="content">
+            <h2>Reset Your Password!</h2>
+            <form action="/reset/<%= id %>" method="post">
+                <div class="inputbox">
+                    <input type="password"  required minlength="0" aria-required="false" aria-invalid="true" name="newpassword" placeholder="Create new password">
+                    </div>
+                <div class="inputbox">
+                  <input style="color: #fff; font-size: 14px;" type="submit" value="Reset">
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+</div>
+<!-- <div class="sizeMsg">
+  <h1>Sorry! can't load this page.</h1>
+  <h4>Please use any <b>Laptop</b> Or <b>Desktop</b> to view page content. <br><br> [ Minimum Screen Size <b>1025px</b> ]</h4>
+</div> -->
+<script src="script.js"></script>
+</body>
+</html>
