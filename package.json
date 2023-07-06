@@ -6,7 +6,7 @@
     "start": "node ./bin/www"
   },
   "engines": {
-    "v18.13.0"
+    "node": "v18.13.0"
   },
   "dependencies": {
     "ajax": "^0.0.4",
