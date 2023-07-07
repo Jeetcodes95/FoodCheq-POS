@@ -33,7 +33,7 @@ app.use(expressSession({
     maxAge: (24*60*60*1000)
   }, //100 hours
   store: MongoStore.create({
-    mongoUrl: 'mongodb://127.0.0.1:27017/foodchequedb',
+    mongoUrl: process.env.MONGODB_URI,
     autoRemove: 'disabled'
   }, function(err) {
     console.log(err)
